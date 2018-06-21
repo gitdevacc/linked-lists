@@ -88,25 +88,19 @@ class SinglyList():
             if current.c==list_head:
                 return True
         return False
-    def merge(self, head, train2):
+    def merge(self,train2):
         assert isinstance(train2, SinglyList)
+        if self.has_cycle(self.head):
+            raise Exception ("Circularly linked lists cannot be merged.")
         for element in train2:
-            self.add_tail(self.head,element.c)
+            self.add_tail(self.head, element.c)
         return self 
 a=Node('Green')
 b=Node('Eggs')
-c=Node('And')
-d=Node('Spam')
 linkedlist=SinglyList()
 linkedlist.add_head(a)
 linkedlist.add_tail(a,b)
-linkedlist.add_tail(a,c)
-linkedlist.add_tail(a,d)
-linkedlist.print_list(a)
 linkedlists=SinglyList()
-linkedlists.add_head(d)
-linkedlists.add_tail(d,c)
-linkedlists.add_tail(d,b)
-linkedlists.add_tail(d,a)
-linkedlists.print_list(d)
-linkedlist.merge(linkedlist, linkedlists)
+linkedlists.add_head(b)
+linkedlists.add_tail(b,a)
+linkedlist.merge(linkedlist)

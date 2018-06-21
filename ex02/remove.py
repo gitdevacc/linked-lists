@@ -69,7 +69,6 @@ class SinglyList(object):
                 return val1.n
             for element in self:
                 if element.n==val:
-                    print("Found a match.")
                     temp=element.n
                     element.n=temp.n 
                     del temp
